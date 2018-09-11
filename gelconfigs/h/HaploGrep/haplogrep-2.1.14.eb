@@ -1,0 +1,38 @@
+##
+#
+# 2.1.14:
+# Arunas Pranckevivius
+# Genomics England Ltd, Queen Mary University London
+#
+##
+
+easyblock = 'JAR'
+
+name = 'HaploGrep'
+version = '2.1.14'
+
+homepage = 'https://github.com/seppinho/haplogrep-cmd'
+description = """mtDNA haplogroup classification. Supporting rCRS and RSRS. http://haplogrep.uibk.ac.at"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+source_urls = ['https://github.com/seppinho/haplogrep-cmd/releases/download/v%(version)s/']
+sources = [{
+    'filename': '%(namelower)s-%(version)s.jar',
+    'download_filename': '%(namelower)s-%(version)s.jar',
+}]
+
+checksums = ['b8340653cd532e267348db475cc8e400b60d97f0c3d93c1912a1fb2b39370c5c']
+
+postinstallcmds = [' mv "%(installdir)s/%(namelower)s-%(version)s.jar" "%(installdir)s/%(namelower)s.jar"']
+
+dependencies = [('Java', '1.8.0_144')]
+
+sanity_check_paths = {
+    'files': ['%(namelower)s.jar'],
+    'dirs': [],
+}
+
+modloadmsg = "To execute HaploGrep run: java -jar $EBROOTHAPLOGREP/%(namelower)s.jar"
+
+moduleclass = 'bio'
