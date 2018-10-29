@@ -31,7 +31,7 @@ checksums = [
 
 dependencies = [
     ('ncurses', '6.0'),
-    ('zlib', '1.2.8'),
+    ('zlib', '1.2.8', '', ('GCCcore', '5.4.0')),
     ('bzip2', '1.0.6'),
     ('XZ', '5.2.2'),
 ]
